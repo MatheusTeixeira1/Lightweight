@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<p:growl id="mensagem"/>
+	<h:form id="formProduto" enctype="multipart/form-data">
+		<div>
+			<p:growl id="a" />
+			<h:outputLabel for="Apelido" value="Apelido:" />
+			<br />
+			<h:inputText id="Apelido" value="#{funcionarioBean.usuario.apelido}">
+				<f:passThroughAttribute name="placeholder" value="Ex: Jose1234" />
+			</h:inputText>
+		</div>
+		<div>
+			<h:outputLabel for="Senha" value="Senha:" />
+			<br />
+			<h:inputText id="Senha" value="#{funcionarioBean.usuario.senha}">
+				<f:passThroughAttribute name="placeholder" value="Sua senha aqui" />
+			</h:inputText>
+		</div>
+		<div>
+			<h:outputLabel for="Nome" value="Nome:" />
+			<br />
+			<h:inputText id="Nome" value="#{funcionarioBean.usuario.nome}">
+				<f:passThroughAttribute name="placeholder" value="Ex: José" />
+			</h:inputText>
+		</div>
+
+		<div>
+			<h:outputLabel for="Sobrenome" value="Sobrenome:" />
+			<br />
+			<h:inputText id="Sobrenome"
+				value="#{funcionarioBean.usuario.sobrenome}">
+				<f:passThroughAttribute name="placeholder"
+					value="Ex: Castro Almeida Pinheiros" />
+			</h:inputText>
+		</div>
+
+
+
+		<div>
+			<h:outputLabel for="cpf" value="Cpf:" />
+			<br />
+			<h:inputText id="cpf" value="#{funcionarioBean.usuario.cpf}">
+				<f:passThroughAttribute name="placeholder"
+					value="Ex: 000.000.000-00" />
+			</h:inputText>
+		</div>
+
+		<div>
+			<h:inputFile id="upload" value="#{funcionarioBean.foto}"
+				label="Upload Image">
+				<f:passThroughAttribute name="accept" value="image/*" />
+			</h:inputFile>
+		</div>
+		<div>
+			<h:outputLabel for="isFuncionario">Gerenciar Produtos:</h:outputLabel>
+			<p:selectBooleanCheckbox id="isFuncionario"
+				value="#{funcionarioBean.usuario.efuncionario}" />
+		</div>
+		<div>
+			<h:outputLabel for="permissao1">Gerenciar Produtos:</h:outputLabel>
+			<p:selectBooleanCheckbox id="permissao1"
+				value="#{funcionarioBean.permissoes.gerenciarProdutos}" />
+		</div>
+		<div>
+			<h:outputLabel for="permissao2">Gerenciar Clientes:</h:outputLabel>
+			<p:selectBooleanCheckbox id="permissao2"
+				value="#{funcionarioBean.permissoes.gerenciarCliente}" />
+		</div>
+		<div>
+			<h:outputLabel for="permissao3">Gerenciar Funcionarios:</h:outputLabel>
+			<p:selectBooleanCheckbox id="permissao3"
+				value="#{funcionarioBean.permissoes.gerenciarFuncionario}" />
+
+		</div>
+		<div>
+
+			<h:outputLabel for="permissao4">Gerenciar Feed:</h:outputLabel>
+			<p:selectBooleanCheckbox id="permissao4"
+				value="#{funcionarioBean.permissoes.gerenciarFeed}" />
+		</div>
+
+
+
+		<h:commandButton update="mensagem" value="Adicionar"
+			action="#{funcionarioBean.inserirFuncionario}" />
+	</h:form>
+
+
+</h:body>
+</html>

@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:panel header="Postagens:"
+		rendered="#{publicacaoBean.viewEscolhida=='Criar'}">
+
+
+		<div>
+			<h:form id="formProduto" enctype="multipart/form-data">
+				<div>
+					<h:inputText id="Nome" value="#{publicacaoBean.publicacao.titulo}">
+						<f:passThroughAttribute name="placeholder" value="Título" />
+					</h:inputText>
+				</div>
+
+				<h:inputFile id="upload" value="#{publicacaoBean.file}"
+					label="Upload Image">
+				</h:inputFile>
+
+				<div class="form-group">
+					<h:inputTextarea id="Descricao"
+						value="#{publicacaoBean.publicacao.conteudoTexto}">
+						<f:passThroughAttribute name="placeholder" value="Descrição" />
+						<f:passThroughAttribute name="maxlength" value="520" />
+					</h:inputTextarea>
+				</div>
+
+				<h:commandButton update="mensagem" value="Adicionar"
+					action="#{publicacaoBean.cirarPublicacao}" />
+			</h:form>
+
+			<div id="feed">
+				<ui:repeat value="#{publicacaoBean.publicacoes}" var="publicacao">
+					<h3>
+						<h:outputText value="#{publicacao.titulo}" />
+					</h3>
+					<div class="feed-img">
+						<h:graphicImage
+							value="../../imagens-feed/#{publicacao.conteudoMidia}" />
+					</div>
+					<p>
+						<h:outputText value="#{publicacao.conteudoTexto}" />
+					</p>
+					<p>
+						Data:
+						<h:outputText value="#{publicacao.dataCriacao}">
+							<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+						</h:outputText>
+					</p>
+					<p>
+						Postado por:
+						<h:outputText value="#{publicacao.criador.nome}" />
+					</p>
+						
+					<h:commandButton value="Editar"
+						action="#{publicacaoBean.navegarParaDetalhes(publicacao)}" />
+						
+					
+				</ui:repeat>
+			</div>
+
+		</div>
+
+	</p:panel>
+
+</ui:composition>

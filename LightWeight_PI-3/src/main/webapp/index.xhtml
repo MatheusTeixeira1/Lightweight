@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+	<title>Academia</title>
+
+	<link rel="stylesheet" type="text/css" href="/resources/css/login.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/all.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="resources/animation_css/page_start.css" />
+
+	
+
+	<script type="text/javascript" src="js/script.js"></script>
+
+	<script type="text/javascript">
+
+        window.addEventListener('load', () => iconAnimation());
+
+        function iconAnimation() {
+            let iconContainer = document.getElementById('iconContainer');
+            let iconWrapper = document.getElementById('iconWrapper');
+            let iconLeft = document.getElementById('iconLeft');
+            let iconRight = document.getElementById('iconRight');
+
+            // Generate a random rotation value between 45 and 360
+            let randomRotation = Math.floor(Math.random() * (360 - 45 + 1) + 45);
+            // Set rotation for icon wrapper
+            iconWrapper.style.transform = 'rotate(' + randomRotation + 'deg)';
+            // Set 'top' for iconLeft and iconRight
+            iconLeft.style.top = '-50%';
+            iconRight.style.top = '100%';
+            // Fade out icon wrapper
+            iconWrapper.style.opacity = '0';
+            // Fade out icon container
+            iconContainer.style.opacity = '0';
+            // Hide icon container and load page after 2.25 seconds
+            setTimeout(function() {
+                iconContainer.style.display = 'none';
+            }, 2250);
+        }
+    </script>
+
+</h:head>
+<body>
+
+	<div id="iconContainer">
+		<div id="iconBackTop"></div>
+		<div id="iconBackBtm"></div>
+		<div id="iconWrapper">
+			<img id="iconLeft" src="resources/img/icon_top.png" alt="Icon" /> <img
+				id="iconRight" src="resources/img/icon_bot.png" alt="Icon" />
+		</div>
+	</div>
+
+	<div class="container_menu" id="container_menu">
+		<div class="icon" id="icon_academy">
+			<img src="resources/img/academia-edu.png" alt="Academia" />
+		</div>
+		<h3 class="topicos">INICIO</h3>
+		<h3 class="topicos">HORÁRIOS DAS AULAS</h3>
+		<h3 class="topicos">PROFISSIONAIS</h3>
+		<h3 class="topicos">BLOG</h3>
+		<h3 class="topicos">CONTATOS</h3>
+		<div class="btn_login" id="login-btn">
+			<h3>
+			<a href="home/login.jsf" style="color: white;"> LOGIN </a>
+			</h3>
+		</div>
+	</div>
+
+	<div id="container_carrossel" class="container_carrossel">
+
+		<div class="carrossel" id="carrossel"></div>
+
+	</div>
+
+	<div id="separador"
+		style="background-color: black; width: 100%; height: 10px;"></div>
+
+	<div id="container_plans" class="container_plans">
+
+		<h2>Escolha já sua assinatura.</h2>
+
+		<div id="plans" class="plans">
+
+			<div id="plan_1" class="plan">
+
+				<h2>R$ 25,00 / Semanal</h2>
+
+				<button class="btn_signature">Assinar</button>
+
+			</div>
+
+			<div id="plan_2" class="plan">
+
+				<h2>R$ 80,00 / Mensal</h2>
+
+				<button class="btn_signature">Assinar</button>
+
+			</div>
+
+			<div id="plan_3" class="plan">
+
+				<h2>R$ 800,00 / Anual</h2>
+
+				<button class="btn_signature">Assinar</button>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="separador"
+		style="background-color: black; width: 100%; height: 10px;"></div>
+
+	<div id="Blog" class="container_blog">
+
+		<h1 style="color: white;">BLOG</h1>
+
+		<div class="blog-container">
+
+			<div class="blog-post">
+				<img src="resources/img/10.jpg" alt="Entre no Ritmo"></img>
+				<div class="post-content">
+					<h3>ENTRE NO RITMO</h3>
+					<p>Use uma derrota passada como motivação. Lembre-se de que
+						você tem.</p>
+				</div>
+			</div>
+
+			<div class="blog-post">
+				<img src="resources/img/11.jpg" alt="Entre no Ritmo"></img>
+				<div class="post-content">
+					<h3>ENTRE NO RITMO</h3>
+					<p>Use uma derrota passada como motivação. Lembre-se de que
+						você tem.</p>
+				</div>
+			</div>
+
+			<div class="blog-post">
+				<img src="resources/img/12.jpg" alt="Entre no Ritmo"></img>
+				<div class="post-content">
+					<h3>ENTRE NO RITMO</h3>
+					<p>Use uma derrota passada como motivação. Lembre-se de que
+						você tem.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<div class="schedule-container">
+
+		<h1 style="color: white;">HORARIOS</h1>
+
+		<div class="days">
+			<div class="day active">Segunda</div>
+			<div class="day">Terça</div>
+			<div class="day">Quarta</div>
+			<div class="day">Quinta</div>
+			<div class="day">Sexta</div>
+			<div class="day">Sabado</div>
+			<div class="day">Domingo</div>
+		</div>
+		<table class="schedule">
+			<thead>
+				<tr>
+					<th>Hora</th>
+					<th>Aula</th>
+					<th>Professor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>06:00 - 07:00</td>
+					<td>Fitness</td>
+					<td><img src="resources/img/coach1.jpg" /> Arno</td>
+				</tr>
+				<tr>
+					<td>07:00 - 08:00</td>
+					<td>Box</td>
+					<td><img src="resources/img/coach2.jpg" /> Bon</td>
+				</tr>
+				<tr>
+					<td>08:00 - 09:00</td>
+					<td>Body Build</td>
+					<td><img src="resources/img/coach3.jpg" /> Joana</td>
+				</tr>
+				<tr>
+					<td>09:00 - 10:00</td>
+					<td>Crossfit</td>
+					<td><img src="resources/img/coach4.jpg" /> Ronaldo</td>
+				</tr>
+				<tr>
+					<td>10:00 - 11:00</td>
+					<td>Cardio</td>
+					<td><img src="resources/img/coach5.jpg" /> Melanie</td>
+				</tr>
+				<tr>
+					<td>11:00 - 12:00</td>
+					<td>Yoga Basico</td>
+					<td><img src="resources/img/coach6.jpg" /> Maria</td>
+				</tr>
+				<tr>
+					<td>12:00 - 01:00</td>
+					<td>Sport</td>
+					<td><img src="resources/img/coach7.jpg" /> Melvin</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="fundo">
+
+		<div class="fundo_box">
+
+			<p style="color: white;">BAIXE NOSSOS APLICATIVOS</p>
+
+			<div>
+
+				<img style="margin-right: 20px;" src="resources/img/playStore.svg"
+					alt=""> </img> <img style="margin-right: 20px;"
+					src="resources/img/apple.svg" alt=""> </img>
+
+			</div>
+
+
+		</div>
+
+
+		<div class="fundo_box">
+
+			<p style="color: white;">SIGA NOSSAS REDES SOCIAIS</p>
+
+			<div>
+
+				<img style="margin-right: 20px;" src="resources/img/instagram.svg"
+					alt=""> </img> <img style="margin-right: 20px;"
+					src="resources/img/facebook.svg" alt=""> </img>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>

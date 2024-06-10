@@ -1,0 +1,124 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:panel header="Pesquisa"
+		rendered="#{produtoBean.viewEscolhida=='Pesquisa'}">
+
+		<!-- 
+		<h:form id="formProduto" enctype="multipart/form-data">
+		 -->
+		<h:outputLabel value="Nome:" />
+		<h:inputText id="campoNome" value="#{produtoBean.produto.nome}" />
+		<br />
+		<h:commandButton update="mensagem" value="Pesquisar"
+			action="#{produtoBean.carregarProdutos}" />
+
+
+		<div class="form-group">
+			<h:outputLabel value="Tipo:" />
+			<h:selectOneMenu value="#{produtoBean.produto.tipoDoProduto}">
+				<f:selectItem itemLabel="Indiferente" itemValue="" />
+				<f:selectItems value="#{produtoBean.tipoSelecionado}" var="tipo"
+					itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+			</h:selectOneMenu>
+
+
+			<h:outputLabel value="Tamanho:" />
+			<h:selectOneMenu value="#{produtoBean.produto.tamanhoProduto}">
+				<f:selectItem itemLabel="Indiferente" itemValue="" />
+				<f:selectItems value="#{produtoBean.tamanhoSelecionado}"
+					var="tamanho" itemValue="#{tamanho}" itemLabel="#{tamanho.label}" />
+			</h:selectOneMenu>
+		</div>
+
+		<h:dataTable value="#{produtoBean.produtos}" var="produto">
+
+
+			<h:column>
+				<div class="feed-img">
+					<h:graphicImage value="/imagens-produtos/#{produto.foto} "
+						style="max-width: 64px; max-height: 64px;" />
+				</div>
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{produto.id}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{produto.nome}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				<h:outputText value="#{produto.preco}">
+					<f:convertNumber type="currency" currencySymbol="R$"
+						minFractionDigits="2" maxFractionDigits="2" />
+				</h:outputText>
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Tipo</f:facet>
+				<h:outputText value="#{	produto.tipoDoProduto.label}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Tamanho</f:facet>
+				<h:outputText value="#{produto.tamanhoProduto.label}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Peso em Grama</f:facet>
+				<h:outputText value="#{produto.pesoLiquido}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Estoque</f:facet>
+				<h:outputText value="#{produto.quantidade}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Desconto</f:facet>
+				<h:outputText value="#{produto.desconto}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Criador</f:facet>
+				<h:outputText value="#{produto.criador.apelido}" />
+			</h:column>
+
+			<!-- 
+				<h:column>
+					<h:commandLink value="detalhe"
+						action="#{produtoBean.navegarParaProdutoEscolhido}">
+						<f:setPropertyActionListener value="#{produto}"
+							target="#{produtoBean.produtoEscolhido}" />
+					</h:commandLink>
+				</h:column>				
+				 -->
+
+			<h:column>
+				<h:commandButton
+					action="#{produtoBean.navegarParaProdutoEscolhido(produto)}" />
+			</h:column>
+		</h:dataTable>
+		<h:commandButton action="#{produtoBean.navegarParaCriarProduto}" />
+		<!-- 
+		</h:form>
+		 -->
+	</p:panel>
+</ui:composition>

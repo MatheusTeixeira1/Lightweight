@@ -1,0 +1,198 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:outputStylesheet library="css" name="all.css" />
+	<h:outputStylesheet library="css" name="user.css" />
+	<h:outputStylesheet library="css" name="criarProduto.css" />
+
+	<h:form rendered="#{produtoBean.viewPop=='criar'}"
+		enctype="multipart/form-data">
+
+
+		<div id="manifest_user" class="manifest_user">
+
+
+			<div id="container_manifest_user" class="container_manifest_user">
+
+				<div class="manifest_box">
+
+					<h:commandLink action="#{produtoBean.fecharPop}">
+						<div class="icon_manifest" id="icon_users">
+							<img style="position: fixed; top: 2%; left: 90%;" id="close"
+								src="../resources/img/close.svg"></img> <img
+								src="../resources/img/cart-3-svgrepo-com.svg"></img>
+						</div>
+					</h:commandLink>
+
+					<div id="control_buttons">
+
+						<h:commandButton class="button_white_select"
+							action="#{produtoBean.mostrarPopCriar}" value="Criar " />
+						<h:commandButton class="button_white"
+							action="#{produtoBean.mostrarPopPesquisa}" value="Pesquisar" />
+
+
+					</div>
+
+
+					<div
+						style="display: flex; flex-direction: column; align-items: center;">
+
+						<div>
+							<h4>Criar produto</h4>
+						</div>
+
+						<div id="container_product_creator"
+							class="container_product_creator">
+
+							<div class="container_top_box">
+
+								<div>
+
+									<label for="Nome">Nome:</label>
+
+
+									<h:inputText class="form_user"
+										value="#{produtoBean.produto.nome}">
+										<f:passThroughAttribute name="placeholder"
+											value="Nome do produto" />
+									</h:inputText>
+
+
+								</div>
+
+								<div class="form_type">
+
+									<label for="tipo">Tipo:</label>
+
+									<h:selectOneMenu name="Tipo" id="tipo"
+										value="#{produtoBean.produto.tipoDoProduto}">
+
+										<f:selectItem itemLabel="Indiferente" itemValue="" />
+										<f:selectItems value="#{produtoBean.tipoSelecionado}"
+											var="tipo" itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+
+									</h:selectOneMenu>
+
+								</div>
+
+								<div class="form_type">
+
+									<label for="tipo">Tipo:</label>
+
+									<h:selectOneMenu name="Tamanho" id="tamanho"
+										value="#{produtoBean.produto.tamanhoProduto}">
+
+										<f:selectItem itemLabel="Indiferente" itemValue="" />
+										<f:selectItems value="#{produtoBean.tamanhoSelecionado}"
+											var="tamanho" itemValue="#{tamanho}"
+											itemLabel="#{tamanho.label}" />
+
+									</h:selectOneMenu>
+
+								</div>
+
+							</div>
+
+
+							<div class="container_sup_box">
+
+
+								<div>
+
+									<label for="Nome">Preço</label>
+									<h:inputText class="form_user"
+										value="#{produtoBean.produto.preco}">
+										<f:convertNumber />
+									</h:inputText>
+
+
+								</div>
+
+
+								<div>
+
+									<label for="Nome">Estoque</label>
+									<h:inputText class="form_user"
+										value="#{produtoBean.produto.quantidade}">
+										<f:convertNumber integerOnly="true" />
+										<f:validateLongRange minimum="0" maximum="2147483647" />
+									</h:inputText>
+
+								</div>
+
+								<div>
+
+									<label>Peso:</label>
+									<h:inputText class="form_user"
+										value="#{produtoBean.produto.preco}">
+										<f:convertNumber />
+									</h:inputText>
+
+
+								</div>
+
+							</div>
+
+							<div
+								style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+
+								<label>Descrição:</label>
+
+								<h:inputTextarea class="form_description"
+									value="#{produtoBean.produto.descricao}">
+									<f:passThroughAttribute name="placeholder" value="Descrição" />
+									<f:passThroughAttribute name="maxlength" value="520" />
+								</h:inputTextarea>
+
+
+								<h:inputFile id="upload" value="#{produtoBean.foto}"
+									label="Upload Image">
+								</h:inputFile>
+
+							</div>
+						</div>
+
+						<h:commandButton id="button_search" class="button"
+							value="Criar produto" action="#{produtoBean.criarProduto}" />
+
+
+					</div>
+
+
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</h:form>
+</ui:composition>
+
+
+
+<!-- 
+							<h:inputFile id="upload" value="#{produtoBean.foto}"
+								label="Upload Image">
+							</h:inputFile>
+
+							<button id="button_search" class="button">Criar produto</button>
+							<h:commandButton action="#{produtoBean.criarProduto}" />
+
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

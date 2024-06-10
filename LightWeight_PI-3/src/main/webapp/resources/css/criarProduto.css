@@ -1,0 +1,148 @@
+@charset "UTF-8";
+.container_product_creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    gap: 2px;
+    padding: 2px;
+}
+
+
+.container_top_box {
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+
+.container_sup_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0 10px;
+    gap:10px;
+}
+
+.colunm_box {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insert_box {
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+
+}
+
+.container_stock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card {
+    display: flex;
+    gap: 30px;
+    max-width: 620px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: 1px solid #2320af;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;  /* Impede que as linhas quebrem */
+}
+
+
+tbody > tr > * {
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+}
+
+
+.fixed {
+        position: fixed;  
+    }
+
+thead > tr {
+    
+    display: flex;
+    flex-direction: row;
+}
+
+
+.product-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    margin: 0;
+    font-size: 1.2em;
+    color: #b0b0b0;
+}
+
+.product-id {
+    color: #b0b0b0;
+    margin-left: 10px;
+}
+
+.product-details p {
+    margin: 5px 0;
+    color: #b0b0b0;
+}
+
+.product-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.product-price {
+    color: #36c413;
+    font-size: 1.2em;
+}
+
+.product-discount {
+    color: #ff5555;
+}
+
+.discount-value {
+    font-weight: bold;
+}
+
+#search_product {
+
+margin-top: 28px;
+
+}

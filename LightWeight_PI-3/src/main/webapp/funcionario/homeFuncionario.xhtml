@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Home Funcionario</title>
+
+	<h:outputStylesheet library="css" name="all.css" />
+	<h:outputStylesheet library="css" name="user.css" />
+	<h:outputStylesheet library="css" name="search.css" />
+
+
+	<!--
+	 <h:form id="form_principal" enctype="multipart/form-data">
+		<p:growl id="messages" />
+		<ui:include src="criarProduto.xhtml" />
+	</h:form> 
+	-->
+
+
+</h:head>
+<h:body>
+	<ui:include src="criarProduto.xhtml" />
+	<ui:include src="pesquisa.xhtml" />
+	<ui:include src="detalhes.xhtml" />
+	
+	<h:form enctype="multipart/form-data">
+		<div id="container_central" class="container_central  ">
+
+			<div id="container_profile" class="container_profile  ">
+
+				<div class="profile_image  ">
+					<img src="../resources/img/10.jpg" alt="Perfil" class=" " />
+				</div>
+
+				<div id="profile_info" class=" ">
+					<h3 id="name_user" style="font-size: 50px;" class=" ">Sam
+						Ribeiro Oliveira</h3>
+					<p style="font-family: Arial, Helvetica, sans-serif" class=" ">
+						Edite seu perfil e imagem, acesse a loja, prolongue sua
+						assinatura, confira o blog da academia e também veja a seção <br />
+						de horários para ficar informado sobre as aulas do dia e a
+						quantidade de alunos presentes na academia em cada <br />
+						momento.
+					</p>
+					<button class="button  ">Editar perfil</button>
+					<h:commandButton class="button_white" value="Deslogar" action="#{loginBean.logout}"/>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div id="container_buttons" class="container_buttons">
+
+
+
+			<h:commandLink id="button_user_4" class="button_user"
+				style="text-decoration: none;" action="#{produtoBean.mostrarPopCriar}">
+				<div class="button_box">
+					<div class="icon_button restrict" id="icon_users">
+						<img src="../resources/img/cart-3-svgrepo-com.svg" class="restrict"></img>
+					</div>
+					<div class="">
+						<h4 style="color: white;" class="restrict">Produtos</h4>
+					</div>
+				</div>
+
+				<div class="">
+					<p
+						style="font-size: 60%; color: white; font-family: Arial, Helvetica, sans-serif"
+						class="restrict">Controle total sobre usuários</p>
+				</div>
+
+				<div class="button_box_2">
+					<p style="font-size: 70%; color: #d64e50;" class="restrict">Gerenciar</p>
+					<div class="icon_font restrict" id="icon_academy">
+
+						<img src="../resources/img/arrow-sm-right-svgrepo-com.svg"
+							alt="Academia" class="restrict"></img>
+					</div>
+				</div>
+			</h:commandLink>
+
+
+
+		</div>
+
+
+
+		<div class="fundo">
+
+			<div class="fundo_box">
+
+				<p class=" " style="color: white;">BAIXE NOSSOS APLICATIVOS</p>
+
+				<div>
+
+					<img style="margin-right: 20px;" src="../resources/img/playStore.svg"
+						alt=""> </img> <img style="margin-right: 20px;"
+						src="../resources/img/apple.svg" alt=""> </img>
+
+				</div>
+
+
+			</div>
+
+
+			<div class="fundo_box">
+
+				<p class=" " style="color: white;">SIGA NOSSAS REDES SOCIAIS</p>
+
+				<div>
+
+					<img style="margin-right: 20px;" src="../resources/img/instagram.svg"
+						alt=""> </img> <img style="margin-right: 20px;"
+						src="../resources/img/facebook.svg" alt=""> </img>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<p:growl id="messages" />
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<p:panel header="#{produtoBean.produtoEscolhido.nome}"
+		rendered="#{produtoBean.viewEscolhida=='Detalhes'}">
+		<!-- 
+		<h:form>
+		 -->
+		<div class="feed-img">
+			<h:graphicImage
+				value="/imagens-produtos/#{produtoBean.produtoEscolhido.foto} "
+				style="max-width: 64px; max-height: 64px;" />
+		</div>
+		<h:outputText value="#{produtoBean.produtoEscolhido.id}"></h:outputText>
+
+		<h:outputText value="#{produtoBean.produtoEscolhido.nome}"></h:outputText>
+		<h:outputText value="#{produtoBean.produtoEscolhido.descricao}"></h:outputText>
+
+		<h:commandButton value="DELETAR"
+			action="#{produtoBean.deletarProduto}" />
+		<h:commandButton value="EDITAR PRODUTO"
+			action="#{produtoBean.navegarParaEditarProduto}" />
+		<h:commandButton value="VOLTAR"
+			action="#{produtoBean.navegarParaPesquisa}" />
+
+		<!-- 
+		</h:form>
+		 -->
+	</p:panel>
+
+</ui:composition>

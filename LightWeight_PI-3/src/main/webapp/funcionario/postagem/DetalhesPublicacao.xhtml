@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<p:panel header="#{publicacaoBean.publicacaoEscolhida.titulo}"
+		rendered="#{publicacaoBean.viewEscolhida=='Detalhes'}">
+		<!-- 
+		<h:form>
+		 -->
+		<h:outputText value="#{publicacaoBean.publicacaoEscolhida.id}"></h:outputText>
+
+		<h:outputText value="#{publicacaoBean.publicacaoEscolhida.titulo}"></h:outputText>
+		<div class="feed-img">
+			<h:graphicImage
+				value="/imagens-feed/#{publicacaoBean.publicacaoEscolhida.conteudoMidia} "
+				style="max-width: 64px; max-height: 64px;" />
+		</div>
+		<h:outputText value="#{publicacaoBean.publicacaoEscolhida.conteudoTexto}"></h:outputText>
+
+		<h:commandButton value="DELETAR"
+						action="#{publicacaoBean.apagarPublicacao}" />
+		<h:commandButton value="VOLTAR"
+			action="#{produtoBean.navegarParaPesquisa}" />
+
+	</p:panel>
+</ui:composition>

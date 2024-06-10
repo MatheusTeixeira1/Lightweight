@@ -1,0 +1,163 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:outputStylesheet library="css" name="all.css" />
+	<h:outputStylesheet library="css" name="user.css" />
+	<h:outputStylesheet library="css" name="criarProduto.css" />
+	<h:outputStylesheet library="css" name="search.css" />
+
+	<h:form rendered="#{produtoBean.viewPop=='pesquisa'}"
+		enctype="multipart/form-data">
+
+		<div id="manifest_user" class="manifest_user">
+
+
+			<div id="container_manifest_user" class="container_manifest_user">
+
+				<div class="manifest_box">
+
+					<h:commandLink action="#{produtoBean.fecharPop}">
+						<div class="icon_manifest" id="icon_users">
+							<img style="position: fixed; top: 2%; left: 90%;" id="close"
+								src="../resources/img/close.svg"></img> <img
+								src="../resources/img/cart-3-svgrepo-com.svg"></img>
+						</div>
+					</h:commandLink>
+
+					<div id="control_buttons">
+
+						<h:commandButton class="button_white"
+							action="#{produtoBean.mostrarPopCriar}" value="Criar " />
+						<h:commandButton class="button_white_select"
+							action="#{produtoBean.mostrarPopPesquisa}" value="Pesquisar" />
+
+
+					</div>
+
+
+
+					<div class="container">
+						<h1>Pesquisa</h1>
+						<div class="container_top_box">
+
+							<div>
+
+								<label for="Nome">Nome:</label>
+
+
+								<h:inputText class="form_user"
+									value="#{produtoBean.produto.nome}">
+									<f:passThroughAttribute name="placeholder"
+										value="Nome do produto" />
+								</h:inputText>
+
+
+							</div>
+
+							<div class="form_type">
+
+								<label for="tipo">Tipo:</label>
+
+								<h:selectOneMenu name="Tipo" id="tipo"
+									value="#{produtoBean.produto.tipoDoProduto}">
+
+									<f:selectItem itemLabel="Indiferente" itemValue="" />
+									<f:selectItems value="#{produtoBean.tipoSelecionado}"
+										var="tipo" itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+
+								</h:selectOneMenu>
+
+							</div>
+
+							<div class="form_type">
+
+								<label for="tipo">Tamanho:</label>
+
+								<h:selectOneMenu name="Tamanho" id="tamanho"
+									value="#{produtoBean.produto.tamanhoProduto}">
+
+									<f:selectItem itemLabel="Indiferente" itemValue="" />
+									<f:selectItems value="#{produtoBean.tamanhoSelecionado}"
+										var="tamanho" itemValue="#{tamanho}"
+										itemLabel="#{tamanho.label}" />
+
+								</h:selectOneMenu>
+
+							</div>
+							<div>
+								<br />
+								<h:commandButton update="mensagem" value="Pesquisar"
+									action="#{produtoBean.carregarProdutos}" class="button" />
+							</div>
+						</div>
+
+
+
+						<h:dataTable value="#{produtoBean.produtos}" var="produto">
+
+
+							<h:column >
+								<div class="feed-img">
+									<h:graphicImage value="/imagens-produtos/#{produto.foto} "
+										style="max-width: 64px; max-height: 64px;" />
+								</div>
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								<h:outputText value="#{produto.id}" />
+							</h:column>
+
+
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:outputText value="#{produto.nome}" />
+							</h:column>
+
+
+
+
+							<h:column>
+								<f:facet name="header">Estoque</f:facet>
+								<h:outputText value="#{produto.quantidade}" />
+							</h:column>
+
+
+
+							<h:column>
+								<h:commandButton value="Deatalhes"
+									action="#{produtoBean.mostrarPopDetalhes(produto)}" />
+							</h:column>
+						</h:dataTable>
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+
+
+	</h:form>
+</ui:composition>
+
+
+
+<!-- 
+							<h:inputFile id="upload" value="#{produtoBean.foto}"
+								label="Upload Image">
+							</h:inputFile>
+
+							<button id="button_search" class="button">Criar produto</button>
+							<h:commandButton action="#{produtoBean.criarProduto}" />
+
+ -->

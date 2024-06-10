@@ -1,0 +1,151 @@
+@charset "UTF-8";
+.container_central {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 100%;
+    height: 400px;
+    
+}
+
+.container_profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #fff;
+    height: 100%;
+
+
+}
+
+.profile_image img {
+    width: 70%;
+    height: 90%;
+    object-fit: cover;
+
+}
+
+.profile_info {
+    height: 90%;
+    border: solid rgb(187, 76, 76);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.container_buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.form_user {
+
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form_search {
+
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.button_user {
+    display: flex;
+    width: 12%;
+    height: 130px;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #111111;
+    color: #fff;
+    cursor: pointer;
+    border: solid rgb(187, 76, 76);
+}
+
+.button_user:hover {background-color: #424040;}
+
+.button_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+
+}
+
+.button_box_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+
+}
+
+.icon_button {
+    display: flex;
+    width: 40%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+}
+
+.icon_font {
+    display: flex;
+    width: 50%; 
+    height: 50%; 
+    background-size: cover; 
+    background-position: center; 
+}
+
+.manifest_user {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 1000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container_manifest_user {
+    display: flex;
+    align-items: center;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: white;
+    flex-direction: column;
+    background-color: rgba(24, 24, 24, 0.9); 
+    width: 30%;
+    min-width: 600px; 
+    min-height: 400px;
+    height: 18%;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden; 
+
+}
+
+.container_manifest_user input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 7%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

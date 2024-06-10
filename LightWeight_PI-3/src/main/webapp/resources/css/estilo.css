@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+*{
+	font-family: sans-serif;
+}
+body {
+	background-color: #252525;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+body>div{
+	word-wrap: break-word;
+	background-color: #FFFFFF;
+	width: 640px;
+}
+#feed{
+	max-width: 100%;
+}
+.feed-img>img{
+	width: auto;
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<p:panel header="#{produtoBean.produtoEscolhido.nome}"
+		rendered="#{produtoBean.viewEscolhida=='DetalhesEditar'}">
+		<!-- 
+		<h:form>
+		 -->
+		<div class="feed-img">
+			<h:graphicImage
+				value="/imagens-produtos/#{produtoBean.produtoEscolhido.foto} "
+				style="max-width: 64px; max-height: 64px;" />
+		</div>
+		<h:outputText value="#{produtoBean.produtoEscolhido.id}"></h:outputText>
+
+		<h:outputText value="#{produtoBean.produtoEscolhido.nome}"></h:outputText>
+
+		<div class="form-group">
+			<h:inputTextarea
+				value="#{produtoBean.produtoEscolhido.descricao}">
+				<f:passThroughAttribute name="placeholder" value="Descrição" />
+				<f:passThroughAttribute name="maxlength" value="520" />
+			</h:inputTextarea>
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Preço" />
+			<br />
+			<h:inputText value="#{produtoBean.produtoEscolhido.preco}">
+				<f:convertNumber />
+			</h:inputText>
+		</div>
+
+		
+
+		<div class="form-group">
+			<h:outputLabel value="Quantidade" />
+			<br />
+			<h:inputText
+				value="#{produtoBean.produtoEscolhido.quantidade}">
+				<f:convertNumber integerOnly="true" />
+				<f:validateLongRange minimum="0" maximum="2147483647" />
+			</h:inputText>
+
+		</div>
+		<h:commandButton value="CONFIRMAR EDIÇÃO"
+			action="#{produtoBean.editarProduto}" />
+		<h:commandButton value="VOLTAR"
+			action="#{produtoBean.navegarParaPesquisa}" />
+
+		<!-- 
+		</h:form>
+		 -->
+	</p:panel>
+
+</ui:composition>
