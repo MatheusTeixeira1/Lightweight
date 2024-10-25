@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Página JSF de Exemplo</title>
+</head>
+<body>
+    <h:form>
+        <h:outputLabel for="nome" value="Digite seu nome:" />
+        <h:inputText id="nome" value="#{helloBean.nome}" />
+        <h:commandButton value="Dizer Olá" action="#{helloBean.digaOla}" />
+        <h:outputText value="#{helloBean.mensagem}" />
+    </h:form>
+</body>
+</html>

@@ -8,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	<title>Home Funcionario</title>
-
+	
 	<h:outputStylesheet library="css" name="all.css" />
 	<h:outputStylesheet library="css" name="user.css" />
 	<h:outputStylesheet library="css" name="search.css" />
@@ -38,8 +38,9 @@
 				</div>
 
 				<div id="profile_info" class=" ">
-					<h3 id="name_user" style="font-size: 50px;" class=" ">Sam
-						Ribeiro Oliveira</h3>
+					<h3 id="name_user" style="font-size: 50px;" class=" ">
+						<h:outputText value="#{loginBean.login.nome}" />
+					</h3>
 					<p style="font-family: Arial, Helvetica, sans-serif" class=" ">
 						Edite seu perfil e imagem, acesse a loja, prolongue sua
 						assinatura, confira o blog da academia e também veja a seção <br />
@@ -74,7 +75,7 @@
 				<div class="">
 					<p
 						style="font-size: 60%; color: white; font-family: Arial, Helvetica, sans-serif"
-						class="restrict">Controle total sobre usuários</p>
+						class="restrict">Controle total sobre produtos</p>
 				</div>
 
 				<div class="button_box_2">

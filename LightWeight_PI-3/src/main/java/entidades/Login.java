@@ -6,6 +6,7 @@ public class Login {
 	
 	private int id;
 	private String apelido;
+	private String nome;
 	private String senha;
 	
 	private boolean efuncionario = false;
@@ -18,9 +19,10 @@ public class Login {
 
 	}
 
-	public Login(String login, String senha) {
+	public Login(String login, String senha, String nome) {
 		this.apelido = login;
 		this.senha = senha;
+		this.nome = nome;
 	}
 	
 	public void atribuirPermissoes(List<Boolean> permissoes) {
@@ -93,5 +95,10 @@ public class Login {
 	public void setGerenciarProdutos(boolean gerenciarProdutos) {
 		this.gerenciarProdutos = gerenciarProdutos;
 	}
-	
+	public String getNome() {
+		return this.nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }

@@ -29,7 +29,25 @@ public class UsuarioDAO {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados Gravados com Sucesso :)"));		
 	}
 	
-	
+	public String buscarNomePorApelido(String apelido) {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Lightweight");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+
+		TypedQuery<String> query = entityManager.createQuery(
+			    "SELECT nome FROM Usuario WHERE apelido = :apelido", String.class);
+			query.setParameter("apelido", apelido);
+
+			// Executando a consulta e obtendo o resultado
+			String nome = query.getSingleResult();
+
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		entityManagerFactory.close();
+		System.out.println("-000---------");
+		System.out.println(nome);
+		return nome;
+	}
 	
 	public Usuario atualizarUsuario(Usuario usuario) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Lightweight");

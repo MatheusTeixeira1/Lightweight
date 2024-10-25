@@ -8,6 +8,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.internal.build.AllowSysOut;
+
 import dao.UsuarioDAO;
 import entidades.Login;
 
@@ -30,6 +32,7 @@ public class LoginBean implements Serializable{
 			if(uDao.isFuncionario(login.getApelido())) {
 				login.setEfuncionario(true);
 				login.atribuirPermissoes(uDao.buscarPermissoes(login.getApelido()));
+				login.setNome(uDao.buscarNomePorApelido(login.getApelido()));
 				session.setAttribute("usuario", login);
 				System.out.println("É funcionario");
 				return "/funcionario/homeFuncionario.jsf?faces-redirect=true";
