@@ -9,42 +9,59 @@
 		style="display: flex; align-items: center; flex-direction: column;"
 		id="form_principal" enctype="multipart/form-data">
 		<p:growl id="messages" />
+
 		<h1>Lista De Produtos</h1>
-		
-		
-		<h:outputLabel value="Nome:" />
-		<h:inputText id="campoNome" value="#{produtoBean.produto.nome}" />
-		
-		
-		<div class="form-group">
-			<h:outputLabel value="Tipo:" />
-			<h:selectOneMenu value="#{produtoBean.produto.tipoDoProduto}">
-				<f:selectItem itemLabel="Indiferente" itemValue="" />
-				<f:selectItems value="#{produtoBean.tipoSelecionado}" var="tipo"
-					itemValue="#{tipo}" itemLabel="#{tipo.label}" />
-			</h:selectOneMenu>
+
+		<div class="form-pesquisar-produtos">
 
 
-			<h:outputLabel value="Tamanho:" />
-			<h:selectOneMenu value="#{produtoBean.produto.tamanhoProduto}">
-				<f:selectItem itemLabel="Indiferente" itemValue="" />
-				<f:selectItems value="#{produtoBean.tamanhoSelecionado}"
-					var="tamanho" itemValue="#{tamanho}" itemLabel="#{tamanho.label}" />
-			</h:selectOneMenu>
+			<div class="form-group-1">
+				<h:outputLabel value="Nome:" />
+				<h:inputText id="campoNome" value="#{produtoBean.produto.nome}">
+					<f:passThroughAttribute name="placeholder" value="Nome do produto" />
+				</h:inputText>
+
+			</div>
+
+			<div class="form-group-2">
+				<div>
+					<h:outputLabel value="Tipo:" />
+					<h:selectOneMenu value="#{produtoBean.produto.tipoDoProduto}">
+						<f:selectItem itemLabel="Indiferente" itemValue="" />
+						<f:selectItems value="#{produtoBean.tipoSelecionado}" var="tipo"
+							itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+					</h:selectOneMenu>
+
+				</div>
+				<div>
+					<h:outputLabel value="Tamanho:" />
+					<h:selectOneMenu value="#{produtoBean.produto.tamanhoProduto}">
+						<f:selectItem itemLabel="Indiferente" itemValue="" />
+						<f:selectItems value="#{produtoBean.tamanhoSelecionado}"
+							var="tamanho" itemValue="#{tamanho}" itemLabel="#{tamanho.label}" />
+					</h:selectOneMenu>
+
+				</div>
+
+			</div>
+
+
+
+
 		</div>
-		
-		<h:commandButton update="mensagem" value="Pesquisar"
-			action="#{produtoBean.carregarProdutos}" />
 
-		
-		
+		<h:commandButton styleClass="btn-pesquisar-produtos" update="mensagem"
+			value="Pesquisar" action="#{produtoBean.carregarProdutos}" />
+
+
+
 		<h:dataTable value="#{produtoBean.produtos}" var="produto"
 			styleClass="form-produtos">
 			<h:column>
-				<div class="feed-img">
-					<h:graphicImage value="/imagens-produtos/#{produto.foto} "
-						style="max-width: 64px; max-height: 64px;" />
-				</div>
+
+				<h:graphicImage value="/imagens-produtos/#{produto.foto} "
+					style="max-width: 64px; max-height: 64px;" />
+
 			</h:column>
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
